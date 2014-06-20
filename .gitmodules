@@ -1,0 +1,15 @@
+[submodule "src/3rdparty/luajit"]
+	path = src/3rdparty/luajit
+	url = https://github.com/LuaDist/luajit.git
+[submodule "src/3rdparty/opencv"]
+	path = src/3rdparty/opencv
+	url = https://github.com/Itseez/opencv.git
+[submodule "src/3rdparty/ffmpeg"]
+	path = src/3rdparty/ffmpeg
+	url = https://github.com/FFmpeg/FFmpeg.git
+[submodule "src/3rdparty/wxwidgets"]
+	path = src/3rdparty/wxwidgets
+	url = https://github.com/wxWidgets/wxWidgets.git
+[submodule "src/3rdparty/portaudio"]
+	path = src/3rdparty/portaudio
+	url = https://github.com/svn2github/PortAudio.git

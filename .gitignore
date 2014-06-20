@@ -1,0 +1,13 @@
+# C::B project files
+*.depend
+*.layout
+
+# Final built
+NyuHow.exe
+src/obj
+
+# Test folder(s)
+test
+
+# User configuration
+config.ini

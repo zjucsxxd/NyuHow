@@ -1,0 +1,27 @@
+<ffmpeg>
+configure --prefix=build/ --disable-programs --disable-manpages --disable-podpages --disable-txtpages --disable-avdevice --disable-postproc --disable-avfilter --disable-network --disable-encoders --disable-muxers --disable-devices --disable-filters --enable-avisynth --disable-debug --disable-yasm
+make
+make install
+##############################
+<luajit>
+make BUILDMODE=static
+##############################
+<wxwidgets>
+make SHARED=0 UNICODE=1 BUILD=release
+##############################
+<opencv>
+Generator: MinGW Makefiles
+BUILD_FAT_JAVA_LIB	uncheck
+BUILD_PERF_TESTS	uncheck
+BUILD_SHARED_LIBS	uncheck
+BUILD_TESTS	uncheck
+BUILD_WITH_DEBUG_INFO	uncheck
+BUILD_opencv_nonfree	uncheck
+ENABLE_PRECOMPILED_HEADERS	uncheck
+WITH_FFMPEG	uncheck
+mingw32-make
+##############################
+<portaudio>
+configure --prefix=/./build/msys --enable-shared=no
+make
+make install

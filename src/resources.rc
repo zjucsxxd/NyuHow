@@ -1,0 +1,46 @@
+#include <winresrc.h>
+#include "version.h"
+
+// File icon
+APP_ICON ICON DISCARDABLE "res\\Nyu.ico"
+
+// Menu bitmaps
+MENU_CLOSE BITMAP DISCARDABLE "res\\gtk_close.bmp"
+
+// wxWidgets standard resources
+#include <wx/msw/wx.rc>
+
+// Detect build type
+#ifdef _DEBUG
+#   define BUILD_TYPE VS_FF_DEBUG
+#else
+#   define BUILD_TYPE VS_FF_PRERELEASE
+#endif
+
+// File information
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION APP_VERSION_BIN	// Version of the output file
+PRODUCTVERSION APP_VERSION_BIN	// Version of the product itself
+FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK	// Allow all sorts of file flags (see below)	
+FILEFLAGS      	BUILD_TYPE	// Build as release or debug or ...?
+FILEOS         	VOS__WINDOWS32	// Target operation system
+FILETYPE       	VFT_APP	// Binary type
+FILESUBTYPE    	VFT2_UNKNOWN	// Driver type
+{
+    BLOCK "StringFileInfo"{
+        BLOCK "040904E4"    // Language in hexadecimal (see below)
+		{
+			VALUE "CompanyName", APP_AUTHOR
+            VALUE "FileDescription", APP_DESC
+            VALUE "FileVersion", APP_VERSION
+            VALUE "InternalName", APP_NAME
+            VALUE "LegalCopyright", APP_COPYRIGHT
+            VALUE "OriginalFilename", APP_NAME
+            VALUE "ProductName", APP_NAME
+            VALUE "ProductVersion", APP_VERSION
+		}
+	}
+    BLOCK "VarFileInfo"{
+		VALUE "Translation", 0x409,1252	// U.S. English, Multilingual codepage
+	}
+}

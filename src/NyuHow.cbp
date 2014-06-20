@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="NyuHow" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="Meta\;GUI\;Control\;Utils\;" />
+		<Build>
+			<Target title="Release">
+				<Option platforms="Windows;" />
+				<Option output="../NyuHow" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-O2" />
+					<Add option="-Wfloat-equal" />
+					<Add option="-Wunreachable-code" />
+					<Add option="-Wmissing-include-dirs" />
+					<Add option="-Wswitch-enum" />
+					<Add option="-pedantic" />
+					<Add option="-std=c++11" />
+					<Add option="-Wall" />
+					<Add option="-D_UNICODE" />
+					<Add option="-DUNICODE" />
+					<Add option="-DNDEBUG" />
+					<Add directory="3rdparty/wxwidgets/lib/gcc_lib/mswu" />
+					<Add directory="3rdparty/wxwidgets/include" />
+					<Add directory="3rdparty/portaudio/build/include" />
+					<Add directory="3rdparty/ffmpeg/build/include" />
+					<Add directory="3rdparty/opencv/build/include" />
+					<Add directory="3rdparty/luajit/src" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="3rdparty/wxwidgets/include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="avformat" />
+					<Add library="avcodec" />
+					<Add library="avutil" />
+					<Add library="swresample" />
+					<Add library="swscale" />
+					<Add library="luajit" />
+					<Add library="opencv_calib3d249" />
+					<Add library="opencv_contrib249" />
+					<Add library="opencv_features2d249" />
+					<Add library="opencv_flann249" />
+					<Add library="opencv_gpu249" />
+					<Add library="opencv_highgui249" />
+					<Add library="opencv_imgproc249" />
+					<Add library="opencv_legacy249" />
+					<Add library="opencv_ml249" />
+					<Add library="opencv_objdetect249" />
+					<Add library="opencv_ocl249" />
+					<Add library="opencv_photo249" />
+					<Add library="opencv_stitching249" />
+					<Add library="opencv_superres249" />
+					<Add library="opencv_ts249" />
+					<Add library="opencv_video249" />
+					<Add library="opencv_videostab249" />
+					<Add library="wxmsw30u_core" />
+					<Add library="wxbase30u" />
+					<Add library="wxbase30u_net" />
+					<Add library="wxbase30u_xml" />
+					<Add library="wxregexu" />
+					<Add library="wxexpat" />
+					<Add library="wxjpeg" />
+					<Add library="wxpng" />
+					<Add library="wxtiff" />
+					<Add library="wxzlib" />
+					<Add library="wxmsw30u_adv" />
+					<Add library="wxmsw30u_html" />
+					<Add library="wxmsw30u_gl" />
+					<Add library="wxmsw30u_xrc" />
+					<Add library="wxmsw30u_aui" />
+					<Add library="wxmsw30u_propgrid" />
+					<Add library="wxmsw30u_ribbon" />
+					<Add library="wxmsw30u_richtext" />
+					<Add library="wxmsw30u_media" />
+					<Add library="wxmsw30u_stc" />
+					<Add library="wxscintilla" />
+					<Add library="wxmsw30u_webview" />
+					<Add library="portaudio" />
+					<Add library="wsock32" />
+					<Add library="kernel32" />
+					<Add library="user32" />
+					<Add library="gdi32" />
+					<Add library="comdlg32" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="ole32" />
+					<Add library="oleaut32" />
+					<Add library="uuid" />
+					<Add library="rpcrt4" />
+					<Add library="advapi32" />
+					<Add directory="3rdparty/wxwidgets/lib/gcc_lib" />
+					<Add directory="3rdparty/portaudio/build/lib" />
+					<Add directory="3rdparty/ffmpeg/build/lib" />
+					<Add directory="3rdparty/opencv/build/x86/gcc/staticlib" />
+					<Add directory="3rdparty/luajit/src" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="AV.cpp">
+			<Option virtualFolder="Utils/" />
+		</Unit>
+		<Unit filename="AV.hpp">
+			<Option virtualFolder="Utils/" />
+		</Unit>
+		<Unit filename="App.cpp">
+			<Option virtualFolder="Control/" />
+		</Unit>
+		<Unit filename="AudioPlayer.cpp">
+			<Option virtualFolder="Utils/" />
+		</Unit>
+		<Unit filename="AudioPlayer.hpp">
+			<Option virtualFolder="Utils/" />
+		</Unit>
+		<Unit filename="Config.cpp">
+			<Option virtualFolder="Control/" />
+		</Unit>
+		<Unit filename="Config.hpp">
+			<Option virtualFolder="Control/" />
+		</Unit>
+		<Unit filename="Lua.hpp">
+			<Option virtualFolder="Utils/" />
+		</Unit>
+		<Unit filename="MainWindow.cpp">
+			<Option virtualFolder="GUI/" />
+		</Unit>
+		<Unit filename="MainWindow.hpp">
+			<Option virtualFolder="GUI/" />
+		</Unit>
+		<Unit filename="UIProps.cpp">
+			<Option virtualFolder="GUI/" />
+		</Unit>
+		<Unit filename="UIProps.hpp">
+			<Option virtualFolder="GUI/" />
+		</Unit>
+		<Unit filename="resources.rc">
+			<Option compilerVar="WINDRES" />
+			<Option virtualFolder="Meta/" />
+		</Unit>
+		<Unit filename="version.h">
+			<Option virtualFolder="Meta/" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

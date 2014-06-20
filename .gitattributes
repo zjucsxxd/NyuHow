@@ -1,0 +1,40 @@
+# Auto detect text files and perform LF normalization
+*	text=auto
+
+# Git files
+.gitattributes	text
+.gitignore	text
+.gitmodules	text
+
+# Source code
+*.c	diff=c
+*.h	diff=cpp
+*.cpp	diff=cpp
+*.hpp	diff=cpp
+*.rc	diff=c
+
+# Language files
+*.po	text
+*.mo	binary
+
+# Documentations
+*.html	diff=html
+*.htm	diff=html
+*.css	diff=css
+*.js	diff=js
+*.pdf	binary
+*.doc	binary
+*.txt	text
+*.md	text
+*.ini	text
+
+# Images
+*.png	binary
+*.ico	binary
+*.bmp	binary
+*.jpg	binary
+
+# Project files
+*.cbp	text	merge=union
+*.depend	text	merge=union
+*.layout	text	merge=union
