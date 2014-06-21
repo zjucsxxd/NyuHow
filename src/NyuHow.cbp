@@ -27,6 +27,7 @@
 					<Add option="-D_UNICODE" />
 					<Add option="-DUNICODE" />
 					<Add option="-DNDEBUG" />
+					<Add option="-D_WIN32" />
 					<Add directory="3rdparty/wxwidgets/lib/gcc_lib/mswu" />
 					<Add directory="3rdparty/wxwidgets/include" />
 					<Add directory="3rdparty/portaudio/build/include" />

@@ -4,10 +4,6 @@
 // File icon
 APP_ICON ICON DISCARDABLE "res\\Nyu.ico"
 
-// Menu bitmaps
-MENU_CLOSE BITMAP DISCARDABLE "res\\gtk_close.bmp"
-//TODO: MENU_HELP BITMAP DISCARDABLE "res\\gtk_about.bmp"
-
 // wxWidgets standard resources
 #include <wx/msw/wx.rc>
 

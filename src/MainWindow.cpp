@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "version.h"
 #include <wx/menu.h>
+#include <wx/artprov.h>
 
 MainWindowFileDrop::MainWindowFileDrop(MainWindow* target) : target(target){}
 
@@ -13,8 +14,13 @@ bool MainWindowFileDrop::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& 
 
 MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filename.empty() ? APP_NAME_FULL : wxString::Format("%s - %s", APP_NAME_FULL, filename), wxDefaultPosition, wxSize(1024, 768), wxCAPTION | wxMINIMIZE_BOX | wxMAXIMIZE_BOX | wxCLOSE_BOX | wxSYSTEM_MENU | wxRESIZE_BORDER | wxTAB_TRAVERSAL | wxCLIP_CHILDREN){
 	// Set window titlebar icon
-#pragma message "Outside of windows, load application icon extern!!!"
-	this->SetIcon(wxICON(APP_ICON));
+	this->SetIcon(
+#ifdef _WIN32
+	wxICON(APP_ICON)
+#else
+	wxIcon("/usr/share/" APP_NAME "/app.ico");
+#endif
+	);
 	// Set frame background
 	this->SetBackgroundColour(wxColour(60,60,70));
 	// Set frame cursor
@@ -33,8 +39,7 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 	menu_bar->Append(file_menu, _("File"));
 	file_menu->AppendSeparator();
 	wxMenuItem* close_menu_item = new wxMenuItem(file_menu, MENU_CLOSE, _("Quit") + "\tCTRL+Q", _("Closes application."));
-#pragma message "Outside of windows, load menu icons extern!!!"
-	close_menu_item->SetBitmap(wxBITMAP(MENU_CLOSE));
+	close_menu_item->SetBitmap(wxArtProvider::GetBitmap(wxART_CLOSE, wxART_MENU));
 	this->Bind(wxEVT_MENU, [this](wxCommandEvent& event) -> void{
 			this->Close();
 		}, MENU_CLOSE);
@@ -43,8 +48,7 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 	menu_bar->Append(help_menu, _("Help"));
 	help_menu->AppendSeparator();
 	wxMenuItem* about_menu_item = new wxMenuItem(help_menu, MENU_ABOUT, _("About...") + "\tCTRL+A", _("Application informations."));
-#pragma message "Outside of windows, load menu icons extern!!!"
-	about_menu_item->SetBitmap(wxBITMAP(MENU_ABOUT));
+	about_menu_item->SetBitmap(wxArtProvider::GetBitmap(wxART_QUESTION, wxART_MENU));
 	this->Bind(wxEVT_MENU, [this](wxCommandEvent& event) -> void{
 
 			// TODO
