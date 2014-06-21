@@ -10,7 +10,7 @@ namespace UIProps{
 
 	void SetLanguage(wxLanguage lang){
 		// Initialize language support
-		static wxLocale* locale = NULL;
+		static wxLocale* locale = nullptr;
 		if(!locale){
 			// Set localization to english for usual number/date format
 			locale = new wxLocale(wxLANGUAGE_ENGLISH);

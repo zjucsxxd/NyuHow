@@ -28,9 +28,10 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 	// Create frame menu
 	wxMenuBar* menu_bar = new wxMenuBar;
 	this->SetMenuBar(menu_bar);
-	enum{MENU_CLOSE};
+	enum{MENU_CLOSE, MENU_ABOUT};
 	wxMenu* file_menu = new wxMenu;
 	menu_bar->Append(file_menu, _("File"));
+	file_menu->AppendSeparator();
 	wxMenuItem* close_menu_item = new wxMenuItem(file_menu, MENU_CLOSE, _("Quit") + "\tCTRL+Q", _("Closes application."));
 #pragma message "Outside of windows, load menu icons extern!!!"
 	close_menu_item->SetBitmap(wxBITMAP(MENU_CLOSE));
@@ -38,7 +39,18 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 			this->Close();
 		}, MENU_CLOSE);
 	file_menu->Append(close_menu_item);
+	wxMenu* help_menu = new wxMenu;
+	menu_bar->Append(help_menu, _("Help"));
+	help_menu->AppendSeparator();
+	wxMenuItem* about_menu_item = new wxMenuItem(help_menu, MENU_ABOUT, _("About...") + "\tCTRL+A", _("Application informations."));
+#pragma message "Outside of windows, load menu icons extern!!!"
+	about_menu_item->SetBitmap(wxBITMAP(MENU_ABOUT));
+	this->Bind(wxEVT_MENU, [this](wxCommandEvent& event) -> void{
 
+			// TODO
+
+		}, MENU_ABOUT);
+	help_menu->Append(about_menu_item);
 
 	// TODO
 

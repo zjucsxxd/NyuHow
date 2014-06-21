@@ -7,7 +7,7 @@
 class AudioPlayer{
 	public:
 		// Available sample formats
-		enum SampleType{U8, S8, S16, S24, S32, F32};
+		enum class SampleType{U8, S8, S16, S24, S32, F32};
 	private:
 		// Output format data
 		const unsigned sample_rate;
@@ -22,7 +22,7 @@ class AudioPlayer{
 		void* stream;
 	public:
 		// Create audio stream
-		AudioPlayer(unsigned sample_rate = 44100, unsigned short channels = 1, SampleType sample_type = F32, int device_index = -1);
+		AudioPlayer(unsigned sample_rate = 44100, unsigned short channels = 1, SampleType sample_type = SampleType::F32, int device_index = -1);
 		// Delete audio stream
 		~AudioPlayer();
 		// No copy

@@ -2,6 +2,7 @@
 #include "Config.hpp"
 #include "UIProps.hpp"
 #include "MainWindow.hpp"
+#include "version.h"
 
 // Application control (mostly just for initializations and deinitializations)
 class App : public wxApp{
@@ -11,7 +12,7 @@ class App : public wxApp{
 			// Disable logging to avoid annoying messages
 			UIProps::EnableLogging(false);
 			// Read configuration file
-			Config::Load(EXE_DIR + "config.ini");
+			Config::Load(EXE_DIR + APP_CONFIG);
 			// Set application language
 			std::map<wxString, std::map<wxString, wxAny>> config = Config::GetValues();
 			if(config.count("Settings") && config["Settings"].count("language") && config["Settings"]["language"].CheckType<wxString>()){
@@ -26,6 +27,8 @@ class App : public wxApp{
 
 				// TODO
 
+				// Write to configuration file
+				Config::Save(EXE_DIR + APP_CONFIG);
 				// End application
 				return false;
 			// On GUI execution
@@ -44,7 +47,7 @@ class App : public wxApp{
 		// Application end
 		int OnExit(){
 			// Write to configuration file
-			Config::Save(EXE_DIR + "config.ini");
+			Config::Save(EXE_DIR + APP_CONFIG);
 			// Application ended successfully
 			return 0;
 		}

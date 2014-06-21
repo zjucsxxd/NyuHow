@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NyuHow\n"
 "POT-Creation-Date: 2014-06-10 06:44+0100\n"
-"PO-Revision-Date: 2014-06-10 07:20+0100\n"
+"PO-Revision-Date: 2014-06-21 18:42+0100\n"
 "Last-Translator: \n"
 "Language-Team: Youka\n"
 "MIME-Version: 1.0\n"
@@ -21,3 +21,12 @@ msgstr "Schließen"
 
 msgid "Closes application."
 msgstr "Schließe Anwendung."
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "About..."
+msgstr "Über..."
+
+msgid "Application informations."
+msgstr "Anwendungsinformationen."

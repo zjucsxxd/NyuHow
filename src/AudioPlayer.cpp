@@ -2,7 +2,7 @@
 #include <portaudio.h>
 
 AudioPlayer::AudioPlayer(unsigned sample_rate, unsigned short channels, SampleType sample_type, int device_index)
-: sample_rate(sample_rate), channels(channels), sample_type(sample_type), device_index(device_index), stream(0){
+: sample_rate(sample_rate), channels(channels), sample_type(sample_type), device_index(device_index), stream(nullptr){
 	// Initialize Portaudio
 	this->err = Pa_Initialize();
 	this->initialized = this->err == paNoError;
@@ -10,19 +10,19 @@ AudioPlayer::AudioPlayer(unsigned sample_rate, unsigned short channels, SampleTy
 	if(this->err == paNoError){
 		PaSampleFormat sample_format;
 		switch(sample_type){
-			case U8: sample_format = paUInt8; break;
-			case S8: sample_format = paInt8; break;
-			case S16: sample_format = paInt16; break;
-			case S24: sample_format = paInt24; break;
-			case S32: sample_format = paInt32; break;
-			case F32: sample_format = paFloat32; break;
+			case SampleType::U8: sample_format = paUInt8; break;
+			case SampleType::S8: sample_format = paInt8; break;
+			case SampleType::S16: sample_format = paInt16; break;
+			case SampleType::S24: sample_format = paInt24; break;
+			case SampleType::S32: sample_format = paInt32; break;
+			case SampleType::F32: sample_format = paFloat32; break;
 			default:
 				this->err = paSampleFormatNotSupported;
 				return;
 		}
 		if(device_index == -1)
 			device_index = Pa_GetDefaultOutputDevice();
-		if(Pa_GetDeviceInfo(device_index) == 0){
+		if(Pa_GetDeviceInfo(device_index) == nullptr){
 			this->err = paInvalidDevice;
 			return;
 		}
@@ -31,9 +31,9 @@ AudioPlayer::AudioPlayer(unsigned sample_rate, unsigned short channels, SampleTy
 			channels,
 			sample_format,
 			Pa_GetDeviceInfo(device_index)->defaultHighOutputLatency,
-			0
+			nullptr
 		};
-		this->err = Pa_OpenStream(&this->stream, 0, &outputParameters, sample_rate, paFramesPerBufferUnspecified, paNoFlag, 0, 0);
+		this->err = Pa_OpenStream(&this->stream, nullptr, &outputParameters, sample_rate, paFramesPerBufferUnspecified, paNoFlag, nullptr, nullptr);
 		if(this->err == paNoError)
 			this->err = Pa_StartStream(this->stream);
 	}

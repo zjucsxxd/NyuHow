@@ -21,29 +21,25 @@ namespace Config{
 					if(config.GetFirstEntry(entry_key, entry_index))
 						do{
 							switch(config.GetEntryType(entry_key)){
-								case wxConfigBase::Type_String:
-									{
+								case wxConfigBase::Type_String:{
 										wxString value;
 										if(config.Read(entry_key, &value))
 											group[entry_key] = value;
 									}
 									break;
-								case wxConfigBase::Type_Boolean:
-									{
+								case wxConfigBase::Type_Boolean:{
 										bool value;
 										if(config.Read(entry_key, &value))
 											group[entry_key] = value;
 									}
 									break;
-								case wxConfigBase::Type_Integer:
-									{
+								case wxConfigBase::Type_Integer:{
 										long value;
 										if(config.Read(entry_key, &value))
 											group[entry_key] = value;
 									}
 									break;
-								case wxConfigBase::Type_Float:
-									{
+								case wxConfigBase::Type_Float:{
 										double value;
 										if(config.Read(entry_key, &value))
 											group[entry_key] = value;

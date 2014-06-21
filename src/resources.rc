@@ -6,6 +6,7 @@ APP_ICON ICON DISCARDABLE "res\\Nyu.ico"
 
 // Menu bitmaps
 MENU_CLOSE BITMAP DISCARDABLE "res\\gtk_close.bmp"
+//TODO: MENU_HELP BITMAP DISCARDABLE "res\\gtk_about.bmp"
 
 // wxWidgets standard resources
 #include <wx/msw/wx.rc>
@@ -21,7 +22,7 @@ MENU_CLOSE BITMAP DISCARDABLE "res\\gtk_close.bmp"
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION APP_VERSION_BIN	// Version of the output file
 PRODUCTVERSION APP_VERSION_BIN	// Version of the product itself
-FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK	// Allow all sorts of file flags (see below)	
+FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK	// Allow all sorts of file flags (see below)
 FILEFLAGS      	BUILD_TYPE	// Build as release or debug or ...?
 FILEOS         	VOS__WINDOWS32	// Target operation system
 FILETYPE       	VFT_APP	// Binary type
