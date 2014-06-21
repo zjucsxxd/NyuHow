@@ -1,4 +1,4 @@
-﻿#include <wx/app.h>
+#include <wx/app.h>
 #include "Config.hpp"
 #include "UIProps.hpp"
 #include "MainWindow.hpp"

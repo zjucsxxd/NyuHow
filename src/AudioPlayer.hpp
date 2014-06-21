@@ -25,6 +25,9 @@ class AudioPlayer{
 		AudioPlayer(unsigned sample_rate = 44100, unsigned short channels = 1, SampleType sample_type = F32, int device_index = -1);
 		// Delete audio stream
 		~AudioPlayer();
+		// No copy
+		AudioPlayer(const AudioPlayer&) = delete;
+		AudioPlayer& operator =(const AudioPlayer&) = delete;
 		// Get output format data (from ctor)
 		unsigned GetSampleRate() const;
 		unsigned short GetChannels() const;
@@ -43,8 +46,4 @@ class AudioPlayer{
 			bool is_default;
 		};
 		static std::vector<Device> GetDevices();
-	private:
-		// No copy
-		AudioPlayer(const AudioPlayer&);
-		AudioPlayer& operator =(const AudioPlayer&);
 };

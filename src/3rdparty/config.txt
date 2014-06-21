@@ -22,6 +22,6 @@ WITH_FFMPEG	uncheck
 mingw32-make
 ##############################
 <portaudio>
-configure --prefix=/./build/msys --enable-shared=no
+configure --enable-shared=no
 make
 make install

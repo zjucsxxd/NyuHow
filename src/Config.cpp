@@ -64,19 +64,18 @@ namespace Config{
 		// Open/create configuration file
 		wxFileConfig config(wxEmptyString, wxEmptyString, filename, wxEmptyString, wxCONFIG_USE_LOCAL_FILE);
 		// Write configuration values to file
-		for(auto group_it = config_values.begin(); group_it != config_values.end(); ++group_it){
-			config.SetPath(group_it->first);
-			std::map<wxString, wxAny>& entries = group_it->second;
-			for(auto entry_it = entries.begin(); entry_it != entries.end(); ++entry_it){
-				wxAny& value = entry_it->second;
+		for(auto& group : config_values){
+			config.SetPath(group.first);
+			for(auto& entry : group.second){
+				wxAny& value = entry.second;
 				if(value.CheckType<wxString>())
-					config.Write(entry_it->first, value.As<wxString>());
+					config.Write(entry.first, value.As<wxString>());
 				else if(value.CheckType<bool>())
-					config.Write(entry_it->first, value.As<bool>());
+					config.Write(entry.first, value.As<bool>());
 				else if(value.CheckType<long>())
-					config.Write(entry_it->first, value.As<long>());
+					config.Write(entry.first, value.As<long>());
 				else if(value.CheckType<double>())
-					config.Write(entry_it->first, value.As<double>());
+					config.Write(entry.first, value.As<double>());
 			}
 		}
 		return true;

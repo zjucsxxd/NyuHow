@@ -80,10 +80,8 @@ std::vector<AudioPlayer::Device> AudioPlayer::GetDevices(){
 	int device_count = Pa_GetDeviceCount();
 	for(int i = 0; i < device_count; ++i){
 		const PaDeviceInfo* device_info = Pa_GetDeviceInfo(i);
-		if(device_info->maxOutputChannels > 0){
-			AudioPlayer::Device device = {device_info->name, Pa_GetHostApiInfo(device_info->hostApi)->name, i, device_info->maxOutputChannels, i == Pa_GetDefaultOutputDevice()};
-			devices.push_back(device);
-		}
+		if(device_info->maxOutputChannels > 0)
+			devices.push_back({device_info->name, Pa_GetHostApiInfo(device_info->hostApi)->name, i, device_info->maxOutputChannels, i == Pa_GetDefaultOutputDevice()});
 	}
 	Pa_Terminate();
 	return devices;
