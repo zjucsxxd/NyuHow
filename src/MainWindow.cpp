@@ -34,7 +34,9 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 	// Create frame menu
 	wxMenuBar* menu_bar = new wxMenuBar;
 	this->SetMenuBar(menu_bar);
+	// Create sub menus
 	enum{MENU_CLOSE, MENU_ABOUT};
+	// Create file menu
 	wxMenu* file_menu = new wxMenu;
 	menu_bar->Append(file_menu, _("File"));
 	file_menu->AppendSeparator();
@@ -44,6 +46,7 @@ MainWindow::MainWindow(const wxString filename) : wxFrame(NULL, wxID_ANY, filena
 			this->Close();
 		}, MENU_CLOSE);
 	file_menu->Append(close_menu_item);
+	// Create help menu
 	wxMenu* help_menu = new wxMenu;
 	menu_bar->Append(help_menu, _("Help"));
 	help_menu->AppendSeparator();

@@ -1,6 +1,7 @@
 #include "Config.hpp"
 #include <wx/wfstream.h>
 #include <wx/fileconf.h>
+#include <utility>
 
 namespace Config{
 	// Configuration values
@@ -24,7 +25,7 @@ namespace Config{
 								case wxConfigBase::Type_String:{
 										wxString value;
 										if(config.Read(entry_key, &value))
-											group[entry_key] = value;
+											group[entry_key] = std::move(value);
 									}
 									break;
 								case wxConfigBase::Type_Boolean:{
@@ -49,7 +50,7 @@ namespace Config{
                                     break;
 							}
 						}while(config.GetNextEntry(entry_key, entry_index));
-					config_values[group_key] = group;
+					config_values[group_key] = std::move(group);
 				}while(config.GetNextGroup(group_key, group_index));
 			return true;
 		}else

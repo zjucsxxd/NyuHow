@@ -19,7 +19,7 @@ class AudioPlayer{
 		// Portaudio initialized
 		bool initialized;
 		// Audio stream object
-		void* stream;
+		void* stream = nullptr;
 	public:
 		// Create audio stream
 		AudioPlayer(unsigned sample_rate = 44100, unsigned short channels = 1, SampleType sample_type = SampleType::F32, int device_index = -1);
@@ -28,6 +28,9 @@ class AudioPlayer{
 		// No copy
 		AudioPlayer(const AudioPlayer&) = delete;
 		AudioPlayer& operator =(const AudioPlayer&) = delete;
+		// No move
+		AudioPlayer(const AudioPlayer&&) = delete;
+		AudioPlayer& operator =(const AudioPlayer&&) = delete;
 		// Get output format data (from ctor)
 		unsigned GetSampleRate() const;
 		unsigned short GetChannels() const;

@@ -2,7 +2,7 @@
 #include <portaudio.h>
 
 AudioPlayer::AudioPlayer(unsigned sample_rate, unsigned short channels, SampleType sample_type, int device_index)
-: sample_rate(sample_rate), channels(channels), sample_type(sample_type), device_index(device_index), stream(nullptr){
+: sample_rate(sample_rate), channels(channels), sample_type(sample_type), device_index(device_index){
 	// Initialize Portaudio
 	this->err = Pa_Initialize();
 	this->initialized = this->err == paNoError;

@@ -22,6 +22,6 @@ WITH_FFMPEG	uncheck
 mingw32-make
 ##############################
 <portaudio>
-configure --enable-shared=no
+configure --prefix=$PWD"/build/bash" --enable-shared=no
 make
 make install
